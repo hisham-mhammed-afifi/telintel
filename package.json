@@ -1,0 +1,11 @@
+{
+  "name": "telintel",
+  "version": "1.0.0",
+  "description": "any",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "me",
+  "license": "ISC"
+}

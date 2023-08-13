@@ -1,0 +1,63 @@
+import { ElementRef, EventEmitter, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { CountryCode } from './data/country-code';
+import { CountryISO } from './enums/country-iso.enum';
+import { SearchCountryField } from './enums/search-country-field.enum';
+import { TooltipLabel } from './enums/tooltip-label.enum';
+import { ChangeData } from './interfaces/change-data';
+import { Country } from './model/country.model';
+export declare class NgxIntlTelInputComponent implements OnInit, OnChanges {
+    private countryCodeData;
+    value: string;
+    preferredCountries: Array<string>;
+    enablePlaceholder: boolean;
+    cssClass: string;
+    onlyCountries: Array<string>;
+    enableAutoCountrySelect: boolean;
+    searchCountryFlag: boolean;
+    searchCountryField: SearchCountryField[];
+    searchCountryPlaceholder: string;
+    maxLength: string;
+    tooltipField: TooltipLabel;
+    selectFirstCountry: boolean;
+    selectedCountryISO: CountryISO;
+    phoneValidation: boolean;
+    inputId: string;
+    separateDialCode: boolean;
+    separateDialCodeClass: string;
+    readonly countryChange: EventEmitter<Country>;
+    selectedCountry: Country;
+    phoneNumber: string;
+    allCountries: Array<Country>;
+    preferredCountriesInDropDown: Array<Country>;
+    phoneUtil: any;
+    disabled: boolean;
+    errors: Array<any>;
+    countrySearchText: string;
+    countryList: ElementRef;
+    onTouched: () => void;
+    propagateChange: (_: ChangeData) => void;
+    constructor(countryCodeData: CountryCode);
+    ngOnInit(): void;
+    ngOnChanges(changes: SimpleChanges): void;
+    init(): void;
+    getPreferredCountries(): void;
+    getSelectedCountry(): void;
+    setSelectedCountry(country: Country): void;
+    /**
+     * Search country based on country name, iso2, dialCode or all of them.
+     */
+    searchCountry(): void;
+    onPhoneNumberChange(): void;
+    onCountrySelect(country: Country, el: any): void;
+    onInputKeyPress(event: KeyboardEvent): void;
+    protected fetchCountryData(): void;
+    protected getPhoneNumberPlaceHolder(countryCode: string): string;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: any): void;
+    setDisabledState(isDisabled: boolean): void;
+    writeValue(obj: any): void;
+    private getCountryIsoCode;
+    separateDialCodePlaceHolder(placeholder: string): string;
+    private removeDialCode;
+    private checkSeparateDialCodeStyle;
+}
